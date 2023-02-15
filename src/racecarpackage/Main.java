@@ -118,16 +118,15 @@ public class Main {
             }
             else {
                 System.out.format("\nYour fastest lap was: %.1f seconds.\n", fastestTime);
+                // Get sum of all lap times and calculate + print the average lap time
+                double sumLaps = 0;
+                double lengthLapTimes = lapTimes.length;
+                for(int i = 0; i < lapTimes.length; i++){
+                    sumLaps += lapTimes[i];
+                }
+                double avgLapTimes = sumLaps / lengthLapTimes;
+                System.out.format("Your average lap time was: %.1f seconds.\n", avgLapTimes);
             }
-
-            // Get sum of all lap times and calculate + print the average lap time
-            double sumLaps = 0;
-            double lengthLapTimes = lapTimes.length;
-            for(int i = 0; i < lapTimes.length; i++){
-                sumLaps += lapTimes[i];
-            }
-            double avgLapTimes = sumLaps / lengthLapTimes;
-            System.out.format("Your average lap time was: %.1f seconds.\n", avgLapTimes);
         }
     }
 }
