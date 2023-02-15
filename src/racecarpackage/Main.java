@@ -113,7 +113,7 @@ public class Main {
                     System.out.println("\nGreat! We will be contacting your family shortly. ");
                 }
                 else {
-                    System.out.println("\nOur sponsor, Hamilton Funeral Home will be contracting your family shortly to talk about at-need arrangements. ");
+                    System.out.println("\nOur sponsor, Hamilton Funeral Home will be contacting your family shortly to talk about at-need arrangements. ");
                 }
             }
             else {
