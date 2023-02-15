@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/RaceCarProject.iml" filepath="$PROJECT_DIR$/RaceCarProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GTJavaProject.iml" filepath="$PROJECT_DIR$/GTJavaProject.iml" />
     </modules>
   </component>
 </project>

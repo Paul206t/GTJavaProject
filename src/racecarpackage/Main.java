@@ -33,9 +33,9 @@ public class Main {
 
         // Print out the cars available to you
         System.out.println("The following cars are available to you.");
-        System.out.println("1. " + cars_bmw_m3_gt.name);
-        System.out.println("2. " + cars_dodge_viper_gts.name);
-        System.out.println("3. " + cars_nissan_skyline_gtr.name);
+        System.out.println("1. " + car1.name);
+        System.out.println("2. " + car2.name);
+        System.out.println("3. " + car3.name);
         System.out.print("\nPlease tell me which car you would like to drive: ");
         int carChosen = scan.nextInt();
         System.out.println(" ");
@@ -43,18 +43,18 @@ public class Main {
         // Switch statement to determine which car to assign you based on the number you chose
         switch (carChosen) {
             case 1:
-                horsePower = cars_bmw_m3_gt.horsePower;
-                System.out.println("You have chosen the " + cars_bmw_m3_gt.name);
+                horsePower = car1.horsePower;
+                System.out.println("You have chosen the " + car1.name);
                 System.out.println("You car has a horsepower of " + horsePower + ".");
                 break;
             case 2:
-                horsePower = cars_dodge_viper_gts.horsePower;
-                System.out.println("You have chosen the " + cars_dodge_viper_gts.name);
+                horsePower = car2.horsePower;
+                System.out.println("You have chosen the " + car2.name);
                 System.out.println("You car has a horsepower of " + horsePower + ".");
                 break;
             case 3:
-                horsePower = cars_nissan_skyline_gtr.horsePower;
-                System.out.println("You have chosen the " + cars_nissan_skyline_gtr.name);
+                horsePower = car3.horsePower;
+                System.out.println("You have chosen the " + car3.name);
                 System.out.println("You car has a horsepower of " + horsePower + ".");
                 break;
             default:
@@ -117,17 +117,17 @@ public class Main {
                 }
             }
             else {
-                System.out.println("\nYour fastest lap was: " + fastestTime + " seconds.");
+                System.out.format("\nYour fastest lap was: %.1f seconds.\n", fastestTime);
             }
 
             // Get sum of all lap times and calculate + print the average lap time
-            int sumLaps = 0;
-            int lengthLapTimes = lapTimes.length;
+            double sumLaps = 0;
+            double lengthLapTimes = lapTimes.length;
             for(int i = 0; i < lapTimes.length; i++){
                 sumLaps += lapTimes[i];
             }
             double avgLapTimes = sumLaps / lengthLapTimes;
-            System.out.println("Your average lap time was: " + avgLapTimes + " seconds.");
+            System.out.format("Your average lap time was: %.1f seconds.\n", avgLapTimes);
         }
     }
 }
