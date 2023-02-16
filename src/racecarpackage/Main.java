@@ -47,17 +47,17 @@ public class Main {
             case 1:
                 horsePower = car1.horsePower;
                 System.out.println("You have chosen the " + car1.name);
-                System.out.println("You car has a horsepower of " + horsePower + ".");
+                System.out.println("Your car has a horsepower of " + horsePower + ".");
                 break;
             case 2:
                 horsePower = car2.horsePower;
                 System.out.println("You have chosen the " + car2.name);
-                System.out.println("You car has a horsepower of " + horsePower + ".");
+                System.out.println("Your car has a horsepower of " + horsePower + ".");
                 break;
             case 3:
                 horsePower = car3.horsePower;
                 System.out.println("You have chosen the " + car3.name);
-                System.out.println("You car has a horsepower of " + horsePower + ".");
+                System.out.println("Your car has a horsepower of " + horsePower + ".");
                 break;
             default:
                 System.out.println("Because you can't follow directions I have given you a 1972 AMC Gremlin. Enjoy. ");
