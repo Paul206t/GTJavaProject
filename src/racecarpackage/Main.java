@@ -21,6 +21,8 @@ public class Main {
 
         // Call chooseCar method
         chooseCar();
+        // Call pickRace method
+        pickRace();
         // Call laps method
         laps();
 
@@ -64,6 +66,36 @@ public class Main {
         }
     }
 
+    public static void pickRace() {
+
+        // Print choice of races available
+        System.out.println("\nThe following tracks are available.");
+        System.out.println("1. " + race_locale1.locale_name);
+        System.out.println("2. " + race_locale2.locale_name);
+        System.out.println("3. " + race_locale3.locale_name);
+        System.out.print("\nPlease tell me where you would like to race: ");
+        int raceChosen = scan.nextInt();
+        System.out.println(" ");
+
+        // Switch statement to determine which car to assign you based on the number you chose
+        switch (raceChosen) {
+            case 1:
+                System.out.println("You are now racing on " + race_locale1.locale_name);
+                System.out.println("The current weather condition is: " + weatherCondition);
+                break;
+            case 2:
+                System.out.println("You are now racing on " + race_locale2.locale_name);
+                System.out.println("The current weather condition is: " + weatherCondition);
+                break;
+            case 3:
+                System.out.println("You are now racing on " + race_locale3.locale_name);
+                System.out.println("The current weather condition is: " + weatherCondition);
+                break;
+            default:
+                System.out.println("You've picked an invalid choice. Let's try this again.");
+                pickRace();
+        }
+    }
 
     public static void laps() {
         // Asking for number of laps
