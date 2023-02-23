@@ -59,7 +59,7 @@ public class Main {
     public static void chooseCar() {
 
         // Print out the cars available to you
-        System.out.println("The following cars are available to you.");
+        System.out.println("\nThe following cars are available to you.");
         System.out.println("1. " + car1.name);
         System.out.println("2. " + car2.name);
         System.out.println("3. " + car3.name);
