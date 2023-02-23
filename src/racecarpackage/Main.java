@@ -46,6 +46,7 @@ public class Main {
                 laps();
                 break;
             case 3:
+                System.exit(0);
                 break;
             default:
                 break;
