@@ -49,6 +49,7 @@ public class Main {
                 System.exit(0);
                 break;
             default:
+                mainMenu();
                 break;
         }
     }
