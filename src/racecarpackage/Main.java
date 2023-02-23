@@ -7,6 +7,7 @@ public class Main {
     // Creating a new scanner and defining variables
     static Scanner scan = new Scanner(System.in);
     static int carCrash = 0;
+    static int carPurchased = 0;
     static int horsePower = 100;
     static LocalDate todayDate = LocalDate.now();
 
@@ -15,18 +16,40 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome to Gran Turismo: Java Edition! \n");
+        System.out.println("Welcome to Gran Turismo: Java Edition!");
         System.out.println("Today's date is " + todayDate + ".");
-        System.out.println("The current weather condition is: " + weatherCondition + ".\n");
 
-        // Call chooseCar method
-        chooseCar();
-        // Call pickRace method
-        pickRace();
-        // Call laps method
-        laps();
+        mainMenu();
 
         System.out.println("\nThanks for playing!");
+    }
+
+
+
+
+    public static void mainMenu() {
+
+        //Provide options to player
+        System.out.println("\nMain Menu \n");
+        System.out.println("1. Garage");
+        System.out.println("2. Race");
+        System.out.println("3. Exit");
+        System.out.print("\nPlease choose your selection: ");
+        int mainMenuSelect = scan.nextInt();
+
+        switch (mainMenuSelect) {
+            case 1:
+                chooseCar();
+                break;
+            case 2:
+                pickRace();
+                laps();
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
     }
 
 
@@ -64,37 +87,72 @@ public class Main {
                 carCrash = 1;
                 break;
         }
+        carPurchased = 1;
+        mainMenu();
     }
 
     public static void pickRace() {
 
-        // Print choice of races available
-        System.out.println("\nThe following tracks are available.");
-        System.out.println("1. " + race_locale1.locale_name);
-        System.out.println("2. " + race_locale2.locale_name);
-        System.out.println("3. " + race_locale3.locale_name);
-        System.out.print("\nPlease tell me where you would like to race: ");
-        int raceChosen = scan.nextInt();
-        System.out.println(" ");
+        String viewStats = "y";
 
-        // Switch statement to determine which car to assign you based on the number you chose
-        switch (raceChosen) {
-            case 1:
-                System.out.println("You are now racing on " + race_locale1.locale_name);
-                System.out.println("The current weather condition is: " + weatherCondition);
-                break;
-            case 2:
-                System.out.println("You are now racing on " + race_locale2.locale_name);
-                System.out.println("The current weather condition is: " + weatherCondition);
-                break;
-            case 3:
-                System.out.println("You are now racing on " + race_locale3.locale_name);
-                System.out.println("The current weather condition is: " + weatherCondition);
-                break;
-            default:
-                System.out.println("You've picked an invalid choice. Let's try this again.");
-                pickRace();
+        if(carPurchased == 0){
+            System.out.println("You don't have a car! ");
+            mainMenu();
         }
+        else
+        {
+            // Print choice of races available
+            System.out.println("\nThe following tracks are available.");
+            System.out.println("1. " + race_locale1.locale_name);
+            System.out.println("2. " + race_locale2.locale_name);
+            System.out.println("3. " + race_locale3.locale_name);
+            System.out.print("\nPlease tell me where you would like to race: ");
+            int raceChosen = scan.nextInt();
+            System.out.println(" ");
+
+            // Switch statement to determine which car to assign you based on the number you chose
+            switch (raceChosen) {
+                case 1:
+                    System.out.println("You are now racing on " + race_locale1.locale_name);
+                    System.out.print("\nWould you like to view stats of this track? (y/n) ");
+                    System.out.println("");
+                    viewStats = scan.next();
+                    if (viewStats.equalsIgnoreCase("y") || viewStats.equalsIgnoreCase("yes")) {
+                        System.out.println(race_locale1.locale_name + " is " + race_locale1.locale_length + " is kilometers long.");
+                        System.out.println("The longitude and latitude is " + race_locale1.locale_longitude + race_locale1.locale_longitude_dir + " and " + race_locale1.locale_latitude + race_locale1.local_latitude_dir + ".");
+                        System.out.println("The current weather condition is: " + weatherCondition);
+                        break;
+                    } else {
+                        break;
+                    }
+                case 2:
+                    System.out.println("You are now racing on " + race_locale2.locale_name);
+                    System.out.print("\nWould you like to view stats of this track? (y/n) ");
+                    viewStats = scan.next();
+                    if (viewStats.equalsIgnoreCase("y") || viewStats.equalsIgnoreCase("yes")) {
+                        System.out.println(race_locale2.locale_name + " is " + race_locale2.locale_length + " is kilometers long.");
+                        System.out.println("The longitude and latitude is " + race_locale2.locale_longitude + race_locale2.locale_longitude_dir + " and " + race_locale2.locale_latitude + race_locale2.local_latitude_dir + ".");
+                        System.out.println("The current weather condition is: " + weatherCondition);
+                        break;
+                    } else {
+                        break;
+                    }
+                case 3:
+                    System.out.println("You are now racing on " + race_locale3.locale_name);
+                    System.out.print("\nWould you like to view stats of this track? (y/n) ");
+                    viewStats = scan.next();
+                    if (viewStats.equalsIgnoreCase("y") || viewStats.equalsIgnoreCase("yes")) {
+                        System.out.println(race_locale3.locale_name + " is " + race_locale3.locale_length + " is kilometers long.");
+                        System.out.println("The longitude and latitude is " + race_locale3.locale_longitude + race_locale3.locale_longitude_dir + " and " + race_locale3.locale_latitude + race_locale3.local_latitude_dir + ".");
+                        System.out.println("The current weather condition is: " + weatherCondition);
+                        break;
+                    } else {
+                        break;
+                    }
+            }
+        }
+        // Call the actual race
+        laps();
     }
 
     public static void laps() {
@@ -159,6 +217,15 @@ public class Main {
                 double avgLapTimes = sumLaps / lengthLapTimes;
                 System.out.format("Your average lap time was: %.1f seconds.\n", avgLapTimes);
             }
+        }
+
+        System.out.print("\nRace again? (y/n) ");
+        String raceAgain = scan.next();
+        if (raceAgain.equalsIgnoreCase("y") || raceAgain.equalsIgnoreCase("yes")){
+            laps();
+        }
+        else {
+            mainMenu();
         }
     }
 }
